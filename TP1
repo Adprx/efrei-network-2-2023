@@ -1,0 +1,23 @@
+Déterminer l'adresse MAC de vos deux machines 
+ip a 
+
+Définir une IP statique sur les deux machines: 
+Commandes utilisées: 
+
+cd /etc/sysconfig/network-scripts 
+ls
+touch ifcfg-enp0s3
+vim ifcfg- enp0s3
+
+Montrez le contenu des fichiers que vous éditez :
+cat ou vim ifcfg- enp0s3 (mais il n’y a rien car je viens de le créer)
+
+Prouver que votre changement d'IP est effectif, en une commande :
+ip a
+ 
+Effectuer un ping d'une machine à l'autre:
+ping 10.1.1.2
+
+A l'aide de Wireshark lancé sur votre PC 
+
+
