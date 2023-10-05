@@ -1,0 +1,81 @@
+☀️ Configuration de router.tp2.efrei
+
+Configurer de façon statique son IP:
+
+[root@node1tp2 network-scripts]# cat ifcfg-enp0s3
+NAME=enp0s3
+DEVICE=enp0s3
+
+BOOTPROTO=static
+ONBOOT=yes
+
+IPADDR=10.2.1.1
+NETMASK=255.255.255.0
+
+Prouvez avec une commande ping que node1.tp2.efrei peut joindre router.tp2.efrei
+
+[root@node1tp2 network-scripts]# ping 10.2.1.254
+PING 10.2.1.254 (10.2.1.254) 56(84) bytes of data.
+64 bytes from 10.2.1.254: icmp_seq=1 ttl=64 time=2.76 ms
+64 bytes from 10.2.1.254: icmp_seq=2 ttl=64 time=5.14 ms
+^C
+--- 10.2.1.254 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 2.764/3.953/5.142/1.189 ms
+
+Ajoutez une route par défaut qui passe par router.tp2.efrei
+
+[root@node1tp2 network-scripts]# cat ifcfg-enp0s3
+NAME=enp0s3
+DEVICE=enp0s3
+
+BOOTPROTO=static
+ONBOOT=yes
+
+IPADDR=10.2.1.1
+NETMASK=255.255.255.0
+
+GATEWAY=10.2.1.254
+DNS1=1.1.1.1
+
+Prouvez que vous avez un accès internet depuis node1.tp2.efrei désormais, avec une commande ping
+
+[root@node1tp2 network-scripts]# ping google.fr
+PING google.fr (172.217.20.195) 56(84) bytes of data.
+64 bytes from waw02s08-in-f195.1e100.net (172.217.20.195): icmp_seq=1 ttl=127 time=26.7 ms
+64 bytes from waw02s08-in-f3.1e100.net (172.217.20.195): icmp_seq=2 ttl=127 time=25.3 ms
+^C
+--- google.fr ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 25.339/26.006/26.674/0.667 ms
+
+Utilisez une commande traceroute pour prouver que vos paquets passent bien par router.tp2.efrei avant de sortir vers internet
+
+[root@node1tp2 network-scripts]# traceroute google.com
+traceroute to google.com (142.250.178.142), 30 hops max, 60 byte packets
+ 1  _gateway (10.2.1.254)  3.935 ms  3.798 ms  3.700 ms
+ 2  192.168.195.2 (192.168.195.2)  5.186 ms  6.131 ms  9.933 ms^C
+
+II. Serveur DHCP
+
+☀️ Install et conf du serveur DHCP sur dhcp.tp2.efrei
+
+Pour l'install du serveur, il faut un accès internet... il suffit d'ajouter là encore une route par défaut, qui passe par router.tp2.efrei
+
+[root@node1tp2 network-scripts]# cat ifcfg-enp0s3
+NAME=enp0s3
+DEVICE=enp0s3
+
+BOOTPROTO=static
+ONBOOT=yes
+
+IPADDR=10.2.1.1
+NETMASK=255.255.255.0
+
+GATEWAY=10.2.1.254
+DNS1=1.1.1.1
+
+Cette fois, dans la conf, ajoutez une option DHCP pour donner au client l'adresse de la passerelle du réseau (c'est à dire l'adresse de router.tp2.efrei) en plus de leur proposer une IP libre
+
+☀️ Test du DHCP sur node1.tp2.efrei
+
