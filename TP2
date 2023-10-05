@@ -77,5 +77,39 @@ DNS1=1.1.1.1
 
 Cette fois, dans la conf, ajoutez une option DHCP pour donner au client l'adresse de la passerelle du réseau (c'est à dire l'adresse de router.tp2.efrei) en plus de leur proposer une IP libre
 
+[root@dhcptp2 network-scripts]# cat ifcfg-enp0s3
+NAME=enp0s3
+DEVICE=enp0s3
+
+BOOTPROTO=static
+ONBOOT=yes
+
+IPADDR=10.2.1.253
+NETMASK=255.255.255.0
+
+GATEWAY=10.2.1.254
+
 ☀️ Test du DHCP sur node1.tp2.efrei
+
+enlevez toute config IP effectuée au préalable:
+
+[root@node1 adprx]# nmcli con del enp0s3
+Connection 'enp0s3' (9fba3e11-1548-316f-908b-cf39777f9a96) successfully deleted.
+Connection 'enp0s3' (3c36b8c2-334b-57c7-91b6-4401f3489c69) successfully deleted.
+
+configurez l'interface pour qu'elle récupère une IP dynamique, c'est à dire avec DHCP:
+
+[root@node1 ~]# cat /etc/sysconfig/network-scripts/ifcfg-enp0s3
+NAME=enp0s3
+DEVICE=enp0s3
+
+BOOTPROTO=dhcp
+ONBOOT=yes
+
+
+🌟 BONUS
+
+ajouter une autre ligne dans la conf du serveur DHCP pour qu'il donne aussi l'adresse d'un serveur DNS (utilisez 1.1.1.1 comme serveur DNS : c'est l'un des serveurs DNS de CloudFlare, un gros acteur du web)
+
+
 
