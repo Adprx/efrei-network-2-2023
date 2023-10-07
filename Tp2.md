@@ -186,6 +186,7 @@ Et j'ai ajouté cette ligne: option domain-name-servers     1.1.1.1;
 ```
 #### ☀️ Wireshark it !
 
+[Capture DHCP](../dhcp.pcapng)
 
 ## III. ARP
 
