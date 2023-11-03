@@ -1,8 +1,8 @@
-#TP3
+# TP3
 
-###I. Setup GNS3
+### I. Setup GNS3
 
-####🌞 Mettre en place la topologie dans GS3
+#### 🌞 Mettre en place la topologie dans GS3
 
 reproduisez la topologie, configurez les IPs et les noms sur toutes les machines
 une fois en place, assurez-vous donc que :
@@ -11,7 +11,8 @@ toutes les machines du réseau 1 peuvent se ping entre elles:
 
 node1net1 -> routernet1
 
-```[adprx@node1net1 ~]$ ping 10.3.1.254
+```
+[adprx@node1net1 ~]$ ping 10.3.1.254
 PING 10.3.1.254 (10.3.1.254) 56(84) bytes of data.
 64 bytes from 10.3.1.254: icmp_seq=1 ttl=64 time=6.41 ms
 64 bytes from 10.3.1.254: icmp_seq=2 ttl=64 time=1.93 ms
@@ -66,57 +67,66 @@ PING 10.3.100.2 (10.3.100.2) 56(84) bytes of data.
 ^C
 --- 10.3.100.2 ping statistics ---
 2 packets transmitted, 2 received, 0% packet loss, time 1001ms
-rtt min/avg/max/mdev = 2.234/2.970/3.706/0.736 ms```
+rtt min/avg/max/mdev = 2.234/2.970/3.706/0.736 ms
+```
 
 routeur2net3 -> routeur1net3
-
-```[adprx@routernet2 ~]$ ping 10.3.100.1PING 10.3.100.1 (10.3.100.1) 56(84) bytes of data.
+```
+[adprx@routernet2 ~]$ ping 10.3.100.1PING 10.3.100.1 (10.3.100.1) 56(84) bytes of data.
 64 bytes from 10.3.100.1: icmp_seq=1 ttl=64 time=2.95 ms
 64 bytes from 10.3.100.1: icmp_seq=2 ttl=64 time=1.26 ms
 ^C
 --- 10.3.100.1 ping statistics ---
 2 packets transmitted, 2 received, 0% packet loss, time 1003ms
-rtt min/avg/max/mdev = 1.255/2.101/2.948/0.846 ms```
+rtt min/avg/max/mdev = 1.255/2.101/2.948/0.846 ms
+```
 
 le router1.tp3 doit avoir un accès internet normal
 
 référez-vous au TP2 pour le setup
 prouvez avec une commande ping qu'il peut joindre une IP publique connue:
-
-```[adprx@routernet1 ~]$ ping 1.1.1.1
+```
+[adprx@routernet1 ~]$ ping 1.1.1.1
 PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
 64 bytes from 1.1.1.1: icmp_seq=1 ttl=128 time=489 ms
 64 bytes from 1.1.1.1: icmp_seq=2 ttl=128 time=9.22 ms
 ^C
 --- 1.1.1.1 ping statistics ---
 2 packets transmitted, 2 received, 0% packet loss, time 1000ms
-rtt min/avg/max/mdev = 9.217/248.969/488.722/239.752 ms```
+rtt min/avg/max/mdev = 9.217/248.969/488.722/239.752 ms
+```
 
 prouvez avec une commande ping qu'il peut joindre des machines avec leur nom DNS public (genre efrei.fr):
 
-```[adprx@routernet1 ~]$ ping efrei.frPING efrei.fr (51.255.68.208) 56(84) bytes of data.
+```
+[adprx@routernet1 ~]$ ping efrei.frPING efrei.fr (51.255.68.208) 56(84) bytes of data.
 64 bytes from ns3028977.ip-51-255-68.eu (51.255.68.208): icmp_seq=1 ttl=128 time=15.4 ms
 64 bytes from ns3028977.ip-51-255-68.eu (51.255.68.208): icmp_seq=2 ttl=128 time=15.8 ms
 ^C
 --- efrei.fr ping statistics ---
 2 packets transmitted, 2 received, 0% packet loss, time 1001ms
-rtt min/avg/max/mdev = 15.354/15.556/15.758/0.202 ms```
+rtt min/avg/max/mdev = 15.354/15.556/15.758/0.202 ms
+```
 
-###II. Routes routes routes
-####🌞 Activer le routage sur les deux machines router
+### II. Routes routes routes
+#### 🌞 Activer le routage sur les deux machines router
 
-```[adprx@routernet1 ~]$ sudo sysctl -w net.ipv4.ip_forward=1
+```
+[adprx@routernet1 ~]$ sudo sysctl -w net.ipv4.ip_forward=1
 net.ipv4.ip_forward = 1
 [adprx@routernet1 ~]$ sudo firewall-cmd --add-masquerade
 success
 [adprx@routernet1 ~]$ sudo firewall-cmd --add-masquerade --permanent
-success```
+success
+```
 
-```[adprx@routernet2 ~]$ sudo sysctl -w net.ipv4.ip_forward=1
+```
+[adprx@routernet2 ~]$ sudo sysctl -w net.ipv4.ip_forward=1
 net.ipv4.ip_forward = 1
 [adprx@routernet2 ~]$ sudo firewall-cmd --add-masquerade
 success
 [adprx@routernet2 ~]$ sudo firewall-cmd --add-masquerade --permanent
-success```
+success
+```
 
-####🌞 Mettre en place les routes locales
+#### 🌞 Mettre en place les routes locales
