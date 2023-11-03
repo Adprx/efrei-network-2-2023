@@ -63,6 +63,32 @@ PING 10.3.2.12 (10.3.2.12) 56(84) bytes of data.
 rtt min/avg/max/mdev = 1.848/2.045/2.243/0.197 ms
 ```
 
+node2net2 -> node1net2
+
+```
+[adprx@node2net2 ~]$ ping 10.3.2.11
+PING 10.3.2.11 (10.3.2.11) 56(84) bytes of data.
+64 bytes from 10.3.2.11: icmp_seq=1 ttl=64 time=4.70 ms
+64 bytes from 10.3.2.11: icmp_seq=2 ttl=64 time=4.46 ms
+^C
+--- 10.3.2.11 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 4.463/4.581/4.699/0.118 ms
+```
+
+node1net1 -> routernet2
+
+```
+[root@node1net2 ~]# ping 10.3.2.254
+PING 10.3.2.254 (10.3.2.254) 56(84) bytes of data.
+64 bytes from 10.3.2.254: icmp_seq=1 ttl=64 time=3.99 ms
+64 bytes from 10.3.2.254: icmp_seq=2 ttl=64 time=2.63 ms
+^C
+--- 10.3.2.254 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1003ms
+rtt min/avg/max/mdev = 2.626/3.307/3.989/0.681 ms
+```
+
 Toutes les machines du réseau 3 peuvent se ping entre elles:
 
 router1net3 -> router2net3
