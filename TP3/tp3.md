@@ -4,10 +4,10 @@
 
 #### 🌞 Mettre en place la topologie dans GS3
 
-reproduisez la topologie, configurez les IPs et les noms sur toutes les machines
-une fois en place, assurez-vous donc que :
+Reproduisez la topologie, configurez les IPs et les noms sur toutes les machines
+Une fois en place, assurez-vous donc que :
 
-toutes les machines du réseau 1 peuvent se ping entre elles:
+Toutes les machines du réseau 1 peuvent se ping entre elles:
 
 node1net1 -> routernet1
 
@@ -48,7 +48,7 @@ PING 10.3.1.12 (10.3.1.12) 56(84) bytes of data.
 rtt min/avg/max/mdev = 2.395/3.688/4.982/1.293 ms
 ```
 
-toutes les machines du réseau 2 peuvent se ping entre elles:
+Toutes les machines du réseau 2 peuvent se ping entre elles:
 
 routernet2 -> node2net2
 
@@ -63,7 +63,7 @@ PING 10.3.2.12 (10.3.2.12) 56(84) bytes of data.
 rtt min/avg/max/mdev = 1.848/2.045/2.243/0.197 ms
 ```
 
-toutes les machines du réseau 3 peuvent se ping entre elles:
+Toutes les machines du réseau 3 peuvent se ping entre elles:
 
 router1net3 -> router2net3
 
@@ -89,10 +89,11 @@ routeur2net3 -> routeur1net3
 rtt min/avg/max/mdev = 1.255/2.101/2.948/0.846 ms
 ```
 
-le router1.tp3 doit avoir un accès internet normal
 
-référez-vous au TP2 pour le setup
-prouvez avec une commande ping qu'il peut joindre une IP publique connue:
+Le router1.tp3 doit avoir un accès internet normal
+
+Référez-vous au TP2 pour le setup
+Prouvez avec une commande ping qu'il peut joindre une IP publique connue:
 ```
 [adprx@routernet1 ~]$ ping 1.1.1.1
 PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
@@ -104,7 +105,7 @@ PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
 rtt min/avg/max/mdev = 9.217/248.969/488.722/239.752 ms
 ```
 
-prouvez avec une commande ping qu'il peut joindre des machines avec leur nom DNS public (genre efrei.fr):
+Prouvez avec une commande ping qu'il peut joindre des machines avec leur nom DNS public (genre efrei.fr):
 
 ```
 [adprx@routernet1 ~]$ ping efrei.frPING efrei.fr (51.255.68.208) 56(84) bytes of data.
@@ -115,6 +116,7 @@ prouvez avec une commande ping qu'il peut joindre des machines avec leur nom DNS
 2 packets transmitted, 2 received, 0% packet loss, time 1001ms
 rtt min/avg/max/mdev = 15.354/15.556/15.758/0.202 ms
 ```
+
 
 ### II. Routes routes routes
 #### 🌞 Activer le routage sur les deux machines router
@@ -136,5 +138,6 @@ success
 [adprx@routernet2 ~]$ sudo firewall-cmd --add-masquerade --permanent
 success
 ```
+
 
 #### 🌞 Mettre en place les routes locales
