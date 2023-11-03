@@ -19,48 +19,56 @@ PING 10.3.1.254 (10.3.1.254) 56(84) bytes of data.
 ^C
 --- 10.3.1.254 ping statistics ---
 2 packets transmitted, 2 received, 0% packet loss, time 1002ms
-rtt min/avg/max/mdev = 1.930/4.172/6.414/2.242 ms```
+rtt min/avg/max/mdev = 1.930/4.172/6.414/2.242 ms
+```
 
 node2net1 -> node1net1
 
-```[adprx@node2net1 ~]$ ping 10.3.1.12
+```
+[adprx@node2net1 ~]$ ping 10.3.1.12
 PING 10.3.1.12 (10.3.1.12) 56(84) bytes of data.
 64 bytes from 10.3.1.12: icmp_seq=1 ttl=64 time=0.044 ms
 64 bytes from 10.3.1.12: icmp_seq=2 ttl=64 time=0.177 ms
 ^C
 --- 10.3.1.12 ping statistics ---
 2 packets transmitted, 2 received, 0% packet loss, time 1002ms
-rtt min/avg/max/mdev = 0.044/0.110/0.177/0.066 ms```
+rtt min/avg/max/mdev = 0.044/0.110/0.177/0.066 ms
+```
 
 routernet1 -> node2net1
 
-```[adprx@routernet1 ~]$ ping  10.3.1.12
+```
+[adprx@routernet1 ~]$ ping  10.3.1.12
 PING 10.3.1.12 (10.3.1.12) 56(84) bytes of data.
 64 bytes from 10.3.1.12: icmp_seq=1 ttl=64 time=4.98 ms
 64 bytes from 10.3.1.12: icmp_seq=2 ttl=64 time=2.40 ms
 ^C
 --- 10.3.1.12 ping statistics ---
 2 packets transmitted, 2 received, 0% packet loss, time 1003ms
-rtt min/avg/max/mdev = 2.395/3.688/4.982/1.293 ms```
+rtt min/avg/max/mdev = 2.395/3.688/4.982/1.293 ms
+```
 
 toutes les machines du réseau 2 peuvent se ping entre elles:
 
 routernet2 -> node2net2
 
-```[adprx@routernet2 ~]$ ping 10.3.2.12
+```
+[adprx@routernet2 ~]$ ping 10.3.2.12
 PING 10.3.2.12 (10.3.2.12) 56(84) bytes of data.
 64 bytes from 10.3.2.12: icmp_seq=1 ttl=64 time=1.85 ms
 64 bytes from 10.3.2.12: icmp_seq=2 ttl=64 time=2.24 ms
 ^C
 --- 10.3.2.12 ping statistics ---
 2 packets transmitted, 2 received, 0% packet loss, time 1002ms
-rtt min/avg/max/mdev = 1.848/2.045/2.243/0.197 ms```
+rtt min/avg/max/mdev = 1.848/2.045/2.243/0.197 ms
+```
 
 toutes les machines du réseau 3 peuvent se ping entre elles:
 
 router1net3 -> router2net3
 
-```[adprx@routernet1 ~]$ ping  10.3.100.2
+```
+[adprx@routernet1 ~]$ ping  10.3.100.2
 PING 10.3.100.2 (10.3.100.2) 56(84) bytes of data.
 64 bytes from 10.3.100.2: icmp_seq=1 ttl=64 time=3.71 ms
 64 bytes from 10.3.100.2: icmp_seq=2 ttl=64 time=2.23 ms
