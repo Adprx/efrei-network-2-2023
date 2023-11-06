@@ -2,10 +2,13 @@
 
 ### 🌞 Setup de la machine dhcp.net1.tp3
 
-il doit donner des IPs aux clients du réseau 1 entre 10.3.1.50/24 et 10.3.1.99/24
-il doit aussi informer les clients du réseau 1 de l'adresse de leur passerelle
-il doit aussi indiquer l'adresse IP 1.1.1.1 comme serveur DNS utilisable par les clients
-je veux voir le fichier de config dans le compte-rendu
+- il doit donner des IPs aux clients du réseau 1 entre 10.3.1.50/24 et 10.3.1.99/24
+
+- il doit aussi informer les clients du réseau 1 de l'adresse de leur passerelle
+
+- il doit aussi indiquer l'adresse IP 1.1.1.1 comme serveur DNS utilisable par les clients
+
+- je veux voir le fichier de config dans le compte-rendu
 
 ```
 #
