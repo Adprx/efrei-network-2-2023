@@ -171,28 +171,28 @@ success
 routernet1
 ```
 [root@routernet1 ~]# cat /etc/sysconfig/network-scripts/route-enp0s10
-10.3.2.0/24 via 10.3.100.2
+10.3.2.0/24 via 10.3.100.2 dev enp0s10
 ```
 
 node1net1 et node2net1
 
 ```
 [root@node1net1 ~]# cat /etc/sysconfig/network-scripts/route-enp0s3
-10.3.2.0/24 via 10.3.100.1
+10.3.2.0/24 via 10.3.100.1 dev enp0s3
 ```
 
 routernet2
 
 ```
 [root@node2net1 ~]# cat /etc/sysconfig/network-scripts/route-enp0s3
-10.3.1.0/24 via 10.3.100.1
+10.3.1.0/24 via 10.3.100.1 dev enp0s3
 ```
 
 node1net2 et node2net2
 
 ```
 [root@node2net1 ~]# cat /etc/sysconfig/network-scripts/route-enp0s3
-10.3.1.0/24 via 10.3.100.2
+10.3.1.0/24 via 10.3.100.2 dev enp0s3
 ```
 
 #### 🌞 Mettre en place les routes par défaut
