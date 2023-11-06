@@ -11,10 +11,12 @@ dnf install nginx
 
 ### 🌞 Création d'une bête page HTML
 
-on va créer un nouveau dossier qui hébergera tous les fichiers de notre site (bon là y'en aura qu'un, et il sera moche, c'est un détail)
-créez le dossier /var/www/efrei_site_nul/:
-
+- on va créer un nouveau dossier qui hébergera tous les fichiers de notre site (bon là y'en aura qu'un, et il sera moche, c'est un détail)
+- créez le dossier /var/www/efrei_site_nul/:
+- 
+```
 [root@webnet2]# mkdir -p /var/www/efrei_site_nul
+```
 
 - Ce dossier va contenir tous les fichiers de notre site web. On l'appelle la racine de notre site web. Ou racine web. Ou webroot pour les anglophones.
 - faites le appartenir à l'utilisateur nginx (sinon le contenu du dossier ne sera pas accessible par le serveur Web NGINX, et il ne pourra pas servir le site !)
@@ -128,4 +130,9 @@ coucou EFREI
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 10.3.2.101  web.net2.tp3
+```
+
+```
+[adprx@node1net1 ~]$ curl http://web.net2.tp3
+coucou EFREI
 ```
