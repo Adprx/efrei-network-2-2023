@@ -33,7 +33,28 @@ public (active)
 
 - utiliser dig pour trouver à quelle IP correspond le nom web.net2.tp3
 ```
+[adprx@node1net1 ~]$ dig @10.3.2.102 web.net2.tp3
 
+; <<>> DiG 9.16.23-RH <<>> @10.3.2.102 web.net2.tp3
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 57027
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: a9ccb6a440ccee1101000000653fb2893e27addc68799fe6 (good)
+;; QUESTION SECTION:
+;web.net2.tp3.                  IN      A
+
+;; ANSWER SECTION:
+web.net2.tp3.           86400   IN      A       10.3.2.101
+
+;; Query time: 12 msec
+;; SERVER: 10.3.2.102#53(10.3.2.102)
+;; WHEN: Mon Nov 06 04:27:18 CET 2023
+;; MSG SIZE  rcvd: 85
 ```
 
 - utiliser curl pour visiter le site web sur web.net2.tp3 en utilisant son nom.
@@ -43,7 +64,7 @@ coucou EFREI
 ```
 - assurez-vous de purger votre fichier hosts de vos éventuelles précédentes modifications
 ```
-[adprx@localhost ~]$ cat /etc/hosts
+[adprx@node1net1 ~]$ cat /etc/hosts
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 10.3.2.101  web.net2.tp3
@@ -80,4 +101,29 @@ subnet 10.3.1.0 netmask 255.255.255.0 {
     option routers 10.3.1.254;
     option domain-name-servers     10.3.2.102;
 }    
+```
+
+- prouvez que ça fonctionne avec un dig depuis un client qui a fraîchement récupéré une IP
+```
+[adprx@node1net1 ~]$ dig web.net2.tp3
+
+; <<>> DiG 9.16.23-RH <<>> web.net2.tp3
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 50825
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: c726ccc29020250001000000653fb8757c7e5f35e56bc98f (good)
+;; QUESTION SECTION:
+;web.net2.tp3.                  IN      A
+
+;; ANSWER SECTION:
+web.net2.tp3.           86400   IN      A       10.3.2.101
+
+;; Query time: 8 msec
+;; SERVER: 10.3.2.102#53(10.3.2.102)
+;; WHEN: Mon Nov 06 04:31:25 CET 2023
+;; MSG SIZE  rcvd: 85
 ```
