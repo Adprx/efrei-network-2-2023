@@ -37,9 +37,10 @@ public (active)
 ```
 
 - utiliser curl pour visiter le site web sur web.net2.tp3 en utilisant son nom.
+```
 [adprx@node1net1 ~]$ curl web.net2.tp3
 coucou EFREI
-
+```
 - assurez-vous de purger votre fichier hosts de vos éventuelles précédentes modifications
 ```
 [adprx@localhost ~]$ cat /etc/hosts
