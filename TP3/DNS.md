@@ -48,3 +48,36 @@ coucou EFREI
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 10.3.2.101  web.net2.tp3
 ```
+
+## 5. DHCP my old friend
+
+### 🌞 Editez la configuration du serveur DHCP sur dhcp.net1.tp3
+
+- l'adresse du serveur DNS qui est donnée au client doit désormais être celle de dns.net2.tp3 (il faut bien préciser une IP, pas le nom)
+```
+#
+# DHCP Server Configuration file.
+#   see /usr/share/doc/dhcp-server/dhcpd.conf.example
+#   see dhcpd.conf(5) man page
+#
+# create new
+# specify domain name
+option domain-name     "srv.world";
+# specify DNS server's hostname or IP address
+# default lease time
+default-lease-time 600;
+# max lease time
+max-lease-time 7200;
+# this DHCP server to be declared valid
+authoritative;
+# specify network address and subnetmask
+subnet 10.3.1.0 netmask 255.255.255.0 {
+    # specify the range of lease IP address
+    range dynamic-bootp 10.3.1.50 10.3.1.99;
+    # specify broadcast address
+    option broadcast-address 10.3.1.255;
+    # specify gateway
+    option routers 10.3.1.254;
+    option domain-name-servers     10.3.2.102;
+}    
+```
