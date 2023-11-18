@@ -7,9 +7,11 @@
 ```$ pacman -S docker```
 
 - Démarrer le service docker avec une commande systemctl
+  
 ```$ systemctl start docker```
 
 - Ajouter votre utilisateur au groupe docker
+  
 ```$ sudo usermod -aG docker $(whoami)```
 
 ### 3. Lancement de conteneurs
@@ -68,7 +70,9 @@ Construire votre propre image
 image de base (celle que vous voulez : debian, alpine, ubuntu, etc.)
 une image du Docker Hub
 qui ne porte aucune application par défaut
+
 ```$ docker pull debian```
+
 vous ajouterez
 mise à jour du système
 installation de Apache (pour les systèmes debian, le serveur Web apache s'appelle apache2 et non pas httpd comme sur Rocky)
