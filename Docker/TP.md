@@ -19,22 +19,17 @@
 #### Utiliser la commande docker run
 lancer un conteneur nginx
 
-l'app NGINX doit avoir un fichier de conf personnalisé
-l'app NGINX doit servir un fichier index.html personnalisé
-l'application doit être joignable grâce à un partage de ports
+- l'app NGINX doit avoir un fichier de conf personnalisé
+- l'app NGINX doit servir un fichier index.html personnalisé
+- l'application doit être joignable grâce à un partage de ports
 vous limiterez l'utilisation de la RAM et du CPU de ce conteneur
-le conteneur devra avoir un nom
+- le conteneur devra avoir un nom
 Tout se fait avec des options de la commande docker run.
-Petit rappel de fonctionnement sur l'application NGINX :
-le fichier de conf par défaut se trouve dans /etc/nginx/nginx.conf
-si vous ouvrez ce fichier, vous constaterez qu'il inclut tout ce qu'il y a dans /etc/nginx/conf.d
-pour que les fichiers de ce dossier soient inclus, ils doivent porter l'extension .conf
-il "suffit" donc
-de créer un fichier de conf NGINX sur l'hôte
-il porte l'extension .conf
-il comporte une conf minimale pour écouter sur un port et servir un site dans un dossier précis
-grâce à une option -v ... sur le docker run
-de poser votre fichier de conf dans /etc/nginx/conf.d/
+- Créer un fichier de conf NGINX sur l'hôte
+- il porte l'extension .conf
+- il comporte une conf minimale pour écouter sur un port et servir un site dans un dossier précis
+- grâce à une option -v ... sur le docker run
+- de poser votre fichier de conf dans /etc/nginx/conf.d/
 ```
 ~/td_docker/nginx 
 ❯ cat index.html 
