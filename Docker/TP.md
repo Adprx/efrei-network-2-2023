@@ -2,7 +2,7 @@
 
 ### 1. Install
 
-- 🌞Installer Docker sur la machine
+- 🌞 Installer Docker sur la machine
 
 ```$ pacman -S docker```
 
@@ -14,9 +14,9 @@
   
 ```$ sudo usermod -aG docker $(whoami)```
 
-### 🌞3. Lancement de conteneurs 
+### 3. Lancement de conteneurs 
 
-#### Utiliser la commande docker run
+#### 🌞 Utiliser la commande docker run
 lancer un conteneur nginx
 
 - l'app NGINX doit avoir un fichier de conf personnalisé
@@ -60,7 +60,7 @@ Tout se fait avec des options de la commande docker run.
 3cbbc4456ab60b84bfae3d54b9132c77d7aebfe7b1b65d9f007b3571df0e50b7
 ```
 
-### 🌞2. Construisez votre propre Dockerfile
+### 🌞 2. Construisez votre propre Dockerfile
 Construire votre propre image
 image de base (celle que vous voulez : debian, alpine, ubuntu, etc.)
 une image du Docker Hub
